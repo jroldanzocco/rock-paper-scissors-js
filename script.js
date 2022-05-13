@@ -6,7 +6,7 @@ function playerSelection() {
 }
 function computerPlay() {
   const playArray = ["rock", "paper", "scissors"];
-  const randomNumber = getRandomInt(0,3);
+  const randomNumber = getRandomInt(0, 3);
   return playArray[randomNumber];
 }
 
@@ -34,3 +34,31 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+function game() {
+  let userPoint = 0;
+  let compPoint = 0;
+  let tie = 0;
+
+  while (userPoint < 4) {
+    let result = playRound(playerSelection(), computerPlay());
+    if (/^You Won!/.test(result)) {
+      userPoint++;
+    } else if (/^You Lose!/.test(result)) {
+      compPoint++;
+    } else if (/Draw/) {
+      tie++;
+    }
+    console.log(result);
+    if (userPoint === 3 || compPoint === 3) {
+      break;
+    }
+  }
+  console.log(`${userPoint} Player, ${compPoint} Computer, ${tie} Tie`);
+  if (userPoint > compPoint) {
+    console.log("¡Player Wins!");
+  } else {
+    console.log("¡Computer Wins!");
+  }
+}
+
+game();
