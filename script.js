@@ -35,30 +35,34 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  let gamesWithWinner = 0;
   let userPoint = 0;
   let compPoint = 0;
   let tie = 0;
-
-  while (userPoint < 4) {
-    let result = playRound(playerSelection(), computerPlay());
-    if (/^You Won!/.test(result)) {
-      userPoint++;
-    } else if (/^You Lose!/.test(result)) {
-      compPoint++;
-    } else if (/Draw/) {
-      tie++;
-    }
-    console.log(result);
-    if (userPoint === 3 || compPoint === 3) {
-      break;
+  while(gamesWithWinner < 5){
+    
+    let round = playRound(playerSelection(),computerPlay())
+    if (round.includes("Won")){
+      gamesWithWinner++
+      userPoint++
+      console.log(round)
+    } else if(round.includes("Lose")){
+      gamesWithWinner++
+      compPoint++
+      console.log(round)
+    }else{
+      tie++
+      console.log(round)
     }
   }
-  console.log(`${userPoint} Player, ${compPoint} Computer, ${tie} Tie`);
-  if (userPoint > compPoint) {
-    console.log("¡Player Wins!");
-  } else {
-    console.log("¡Computer Wins!");
+  if(userPoint > compPoint){
+    console.log(`You Won!!! Total score: PLAYER: ${userPoint} vs. CPU: ${compPoint}`)
+  }else{
+    console.log(`You Lose!!!`)
+    console.log(`Total score: CPU: ${compPoint} vs. PLAYER: ${userPoint}`)
   }
+  
+  
 }
 
-game();
+game()
