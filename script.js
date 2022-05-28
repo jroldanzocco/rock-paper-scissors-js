@@ -34,35 +34,33 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  let gamesWithWinner = 0;
-  let userPoint = 0;
-  let compPoint = 0;
-  let tie = 0;
-  while(gamesWithWinner < 5){
+// function game() {
+//   let gamesWithWinner = 0;
+//   let userPoint = 0;
+//   let compPoint = 0;
+//   let tie = 0;
+//   while(gamesWithWinner < 5){
     
-    let round = playRound(playerSelection(),computerPlay())
-    if (round.includes("Won")){
-      gamesWithWinner++
-      userPoint++
-      console.log(round)
-    } else if(round.includes("Lose")){
-      gamesWithWinner++
-      compPoint++
-      console.log(round)
-    }else{
-      tie++
-      console.log(round)
-    }
-  }
-  if(userPoint > compPoint){
-    console.log(`You Won!!! Total score: PLAYER: ${userPoint} vs. CPU: ${compPoint}`)
-  }else{
-    console.log(`You Lose!!!`)
-    console.log(`Total score: CPU: ${compPoint} vs. PLAYER: ${userPoint}`)
-  }
+//     let round = playRound(playerSelection(),computerPlay())
+//     if (round.includes("Won")){
+//       gamesWithWinner++
+//       userPoint++
+//       console.log(round)
+//     } else if(round.includes("Lose")){
+//       gamesWithWinner++
+//       compPoint++
+//       console.log(round)
+//     }else{
+//       tie++
+//       console.log(round)
+//     }
+//   }
+//   if(userPoint > compPoint){
+//     console.log(`You Won!!! Total score: PLAYER: ${userPoint} vs. CPU: ${compPoint}`)
+//   }else{
+//     console.log(`You Lose!!!`)
+//     console.log(`Total score: CPU: ${compPoint} vs. PLAYER: ${userPoint}`)
+//   }
   
   
-}
-
-game()
+// }
