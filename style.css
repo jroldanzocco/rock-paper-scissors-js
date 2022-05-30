@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.hidden{
+    display: none;
+    transition: 500ms;
+}
+
+#choose{
+    display: flex;
+    flex-direction: row;
+}
+#cpu-select{
+    text-transform: capitalize;
+}

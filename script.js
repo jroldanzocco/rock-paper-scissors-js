@@ -1,13 +1,17 @@
+const playOptions = ["rock", "paper", "scissors"];
 function playerSelection() {
-  let playerSelect = prompt(
-    "Enter your play! Rock, Paper, or Scissors"
-  ).toLowerCase();
-  return playerSelect;
+  if(userChoice.innerText === "Paper"){
+    return playOptions[1]
+  }else if(userChoice.innerText === "Rock"){
+    return playOptions[0]
+  }else{
+    return playOptions[2]
+  }
 }
-function computerPlay() {
-  const playArray = ["rock", "paper", "scissors"];
+function cpuPlay() {
+  
   const randomNumber = getRandomInt(0, 3);
-  return playArray[randomNumber];
+  return playOptions[randomNumber];
 }
 
 function getRandomInt(min, max) {
@@ -24,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
     return "You Won! Rock beats Scissors";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
-    return "You Lose! Rock beats Paper";
+    return "You Lose! Paper beats Rock";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     return "You Won! Scissors beats Paper";
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
@@ -64,3 +68,39 @@ function playRound(playerSelection, computerSelection) {
   
   
 // }
+
+/*  DOM Version    */
+//Selectors
+const paper = document.querySelector("#paper")
+const rock = document.querySelector('#rock')
+const scissors = document.querySelector('#scissors')
+const userChoice = document.querySelector('#user-select')
+const cpuChoice = document.querySelector('#cpu-select')
+
+const resultDiv = document.querySelector('#result')
+function showScore(){
+  const element = document.querySelector('#contenedor')
+  element.classList.remove('hidden')
+}
+
+paper.addEventListener('click',(e)=>{
+  userChoice.innerText = 'Paper'
+  cpuChoice.innerText = computerPlay
+  resultDiv.innerText = playRound(playerSelection(),computerPlay)
+  showScore()
+})
+rock.addEventListener('click',(e)=>{
+  const computerPlay = cpuPlay()
+  userChoice.innerText = 'Rock'
+  cpuChoice.innerText = computerPlay
+  resultDiv.innerText = playRound(playerSelection(),computerPlay)
+  showScore()
+})
+scissors.addEventListener('click',(e)=>{
+  userChoice.innerText = 'Scissors'
+  cpuChoice.innerText = computerPlay
+  resultDiv.innerText = playRound(playerSelection(),computerPlay)
+  showScore()
+})
+
+
